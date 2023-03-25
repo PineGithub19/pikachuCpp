@@ -1,5 +1,5 @@
-
-char bg[20][41];
+#pragma once
+#include "mylib.h"
 
 void getBackground(char bg[][41]) {
     ifstream fin("pika.txt");

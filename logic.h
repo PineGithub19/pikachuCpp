@@ -1,13 +1,5 @@
-#include "board.cpp"
-
-// ===================================== KHAI BAO CAC BIEN =====================================
-int x = 0, y = 0;	// index trong mang khi lua chon pokemon
-int _x = -1, _y = -1;	// index trong mang cua pokemon thu 2
-// ===================================== KHAI BAO CAC HAM ======================================
-vector<pair<int,int>> findPath(int _x, int _y, int x, int y);
-bool canConnect(int _x, int _y, int x, int y);
-bool selectPokemon(int x, int y);
-// =============================================================================================
+#pragma once
+#include "mylib.h"
 
 vector<pair<int, int>> findPath(int _x, int _y, int x, int y) {
 	// INIT Graph
@@ -60,6 +52,7 @@ vector<pair<int, int>> findPath(int _x, int _y, int x, int y) {
 			s = trace[s.first][s.second];
 		}
 	}
+	
 	return result;
 }
 

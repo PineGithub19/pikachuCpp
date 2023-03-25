@@ -1,11 +1,6 @@
-#include "mylib.cpp"
-#include "pictures.cpp"
+#pragma once
+#include "mylib.h"
 
-// ===================================== KHAI BAO CAC BIEN =====================================
-int n_rows = 8, n_cols = 8, n_types = 26;
-vector<int> countAlphabets = {2, 4, 2, 2, 8, 2, 2, 4, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4};
-
-char** pokemons = new char*[n_rows];
 // ===================================== KHAI BAO CAC HAM ======================================
 void addPokemon(int x, int y, char type, char** pokemons);
 char getPokemon(int x, int y, char** pokemons);
