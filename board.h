@@ -1,4 +1,5 @@
-#include "Header_File/board.h"
+#pragma once
+#include "mylib.h"
 
 // thêm pokemon thuộc loại type vào ô ở hàng x cột y
 void addPokemon(int x, int y, char type, char** pokemons) {
@@ -114,3 +115,13 @@ bool checkEmptyBoard(char** pokemons) {
 	}
 	return true;
 }
+
+//int main() {
+//	input2DArr(pokemons);
+//	
+//    Board(n_rows, n_cols, n_types, countAlphabets, pokemons);
+//    
+//    printGirdOfPokemons(pokemons, n_rows);
+//    
+//    return 0;
+//}
