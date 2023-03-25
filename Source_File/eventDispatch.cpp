@@ -1,6 +1,4 @@
-#pragma once
-#include "mylib.h"
-#include "player.h"
+#include "Header_File/eventDispatch.h"
 
 void EventDispatches(int choiceInMenu) {
 	// ===== INIT PLAYER INFO =====

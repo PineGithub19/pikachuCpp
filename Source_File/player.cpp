@@ -1,10 +1,4 @@
-#pragma once
-#include "mylib.h"
-
-struct Info {
-	string name;
-	int scores = 0;
-}; 
+#include "Header_File/player.h"
 
 void initPlayer(Info &player) {
 	cout << "Enter Your Name: ";

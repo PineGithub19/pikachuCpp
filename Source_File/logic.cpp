@@ -1,5 +1,4 @@
-#pragma once
-#include "mylib.h"
+#include "Header_File/logic.h"
 
 vector<pair<int, int>> findPath(int _x, int _y, int x, int y) {
 	// INIT Graph

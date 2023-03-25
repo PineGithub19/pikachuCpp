@@ -1,5 +1,4 @@
-#pragma once
-#include "mylib.h"
+#include "Header_File/pictures.h"
 
 void getBackground(char bg[][41]) {
     ifstream fin("pika.txt");

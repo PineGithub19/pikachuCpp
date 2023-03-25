@@ -27,6 +27,10 @@ int _x = -1, _y = -1;	// index trong mang cua pokemon thu 2
 
 char bg[20][41];
 
+struct Info {
+	string name;
+	int scores = 0;
+}; 
 
 void gotoxy(int x__, int y__)
 {

@@ -5,8 +5,8 @@
 #include "menu.h"
 #include "pictures.h"
 #include "player.h"
-#include "typeOfBoard.h"
 #include "play.h"
+#include "typeOfBoard.h"
 
 int main() {
 	play();

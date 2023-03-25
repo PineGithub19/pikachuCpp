@@ -1,5 +1,4 @@
-#pragma once
-#include "mylib.h"
+#include "Header_File/menu.h"
 
 void printMenuFrame(string menuFrame[], int x_menu, int y_menu) {
 	for (int i = 0; i < 5; i++) {

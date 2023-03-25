@@ -1,5 +1,4 @@
-#pragma once
-#include "mylib.h"
+#include "Header_File/play.h"
 
 void play() {
 	// ===== INIT MAIN MENU =====

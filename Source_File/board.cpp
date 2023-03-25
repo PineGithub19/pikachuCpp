@@ -1,17 +1,4 @@
-#pragma once
-#include "mylib.h"
-
-// ===================================== KHAI BAO CAC HAM ======================================
-void addPokemon(int x, int y, char type, char** pokemons);
-char getPokemon(int x, int y, char** pokemons);
-void removePokemon(int x, int y, char** pokemons);
-void Board(int n_rows, int n_cols, int n_types, vector<int> countAlphabets, char** pokemons);
-
-void TextColor(int x);
-void input2DArr(char** pokemons);
-void freedom2DArr(char** pokemons);
-void print(char **c, int n);
-//===============================================================================================
+#include "Header_File/board.h"
 
 // thêm pokemon thuộc loại type vào ô ở hàng x cột y
 void addPokemon(int x, int y, char type, char** pokemons) {
@@ -127,13 +114,3 @@ bool checkEmptyBoard(char** pokemons) {
 	}
 	return true;
 }
-
-//int main() {
-//	input2DArr(pokemons);
-//	
-//    Board(n_rows, n_cols, n_types, countAlphabets, pokemons);
-//    
-//    printGirdOfPokemons(pokemons, n_rows);
-//    
-//    return 0;
-//}
