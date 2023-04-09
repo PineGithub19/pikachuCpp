@@ -10,7 +10,7 @@ void printBoxOfLevel(string boxOfLevel[], int x_level, int y_level) {
 } 
 
 void levels() {
-    ShowConsoleCursor(false);
+//    ShowConsoleCursor(false);
     // 15 x 3
     string boxOfLevel[3] = {
         "x---------------x",
@@ -83,7 +83,7 @@ void levels() {
 		break;
 		case ASIA:
             system("cls");
-			cout << "ASIA";
+			EventDispatches_ASIA();
 		break;
 	}
 }

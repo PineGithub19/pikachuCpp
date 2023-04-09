@@ -1,6 +1,20 @@
 #pragma once
 #include "mylib.h"
 
+void getBackground_ASIA(char** bg) {
+    ifstream fin("picture_txt\\plane.txt");
+    int dem = 0;
+    string S;
+    while(!fin.eof())
+    {
+        getline(fin,S);
+        for(int i = 0; i < S.size(); i++) 
+            bg[dem][i] = S[i];
+        dem++;
+    }
+    fin.close();
+}
+
 void getBackground_HARD(char** bg) {
     ifstream fin("picture_txt\\pic1.txt");
     int dem = 0;

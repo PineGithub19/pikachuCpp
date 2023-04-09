@@ -13,7 +13,7 @@ void calTime(int &prev_time, int &time_left) {
 }
 
 void showTime(int time_left) {
-	ShowConsoleCursor(false);
+//	ShowConsoleCursor(false);
     int _minutes = time_left / 60;
     int _seconds = time_left % 60;
 	gotoxy(120, 0);

@@ -168,7 +168,7 @@ void leaderboard() {
 }
 
 int MainMenu() {
-
+	ShowConsoleCursor(false);
 	int choice[5] = {1, 2, 3, 4, 5};
 	
 	string menuFrame[] ={

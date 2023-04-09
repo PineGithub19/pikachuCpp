@@ -45,7 +45,7 @@ void showPlayersLeaderBoard() {
         
     for (int i = 0; i < sortPlayers.size() - 1; i++)
         for (int j = i + 1; j < sortPlayers.size(); j++)
-            if (sortPlayers[i].scores < sortPlayers[j].scores)
+            if (sortPlayers[i].scores <= sortPlayers[j].scores)
                 swap(sortPlayers[i], sortPlayers[j]);
 
     for (int i = 0; i < sortPlayers.size() - 1; i++) {
@@ -57,14 +57,31 @@ void showPlayersLeaderBoard() {
             }
         }
     }
-
+    
+    for (int i = 0; i < sortPlayers.size() - 1; i++)
+        for (int j = i + 1; j < sortPlayers.size(); j++)
+            if (sortPlayers[i].name > sortPlayers[j].name)
+                swap(sortPlayers[i], sortPlayers[j]);
+	
     for (int i = 0; i < sortPlayers.size(); i++) {
-        gotoxy(x_playerLB, y_playerLB);
-        TextColor(12);
-        if (i <= 4)
-            TextColor(5);
-        cout << setfill(' ') << setw(20) << sortPlayers[i].name << setfill('.') << setw(50) << sortPlayers[i].scores << " Scores";
-        y_playerLB += 2;     
+//        gotoxy(x_playerLB, y_playerLB);
+//        TextColor(12);
+//        if (i <= 4)
+//            TextColor(5);
+//        cout << setfill(' ') << setw(20) << sortPlayers[i].name << setfill('.') << setw(50) << sortPlayers[i].scores << " Scores";
+//        y_playerLB += 2;   
+		for (int j = 0; j < sortPlayers.size(); j++) {
+			if (sortPlayers[i].name != sortPlayers[j].name && sortPlayers[i].scores > sortPlayers[j].scores) {
+				gotoxy(x_playerLB, y_playerLB);
+		        TextColor(12);
+		        if (i <= 4)
+		            TextColor(5);
+		        cout << setfill(' ') << setw(20) << sortPlayers[i].name << setfill('.') << setw(50) << sortPlayers[i].scores << " Scores";
+		        y_playerLB += 2; 
+		        i = j;
+		        break;
+			}
+		}
     }
 
     delete[] _Players;
@@ -106,9 +123,9 @@ void findPlayerName(Info &Player) {
 
     else {
         for (int i = 0; i < filterPlayers.size() - 1; i++)
-        for (int j = i + 1; j < filterPlayers.size(); j++)
-            if (filterPlayers[i].scores < filterPlayers[j].scores)
-                swap(filterPlayers[i], filterPlayers[j]);
+        	for (int j = i + 1; j < filterPlayers.size(); j++)
+            	if (filterPlayers[i].scores < filterPlayers[j].scores)
+                	swap(filterPlayers[i], filterPlayers[j]);
 
         for (int i = 0; i < filterPlayers.size() - 1; i++) {
             for (int j = i + 1; j < filterPlayers.size(); j++) {
