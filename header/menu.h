@@ -15,6 +15,8 @@ void howToPlay() {
 	
 	ShowConsoleCursor(false);
 	
+	SetConsoleOutputCP(65001);
+	
 	TextColor(5);
 	gotoxy(30, 0);
 	cout << " _   _ _____  _    _   _____ _____  ______ _       _____   __  ___  ";
@@ -29,18 +31,71 @@ void howToPlay() {
 	gotoxy(30, 5);
 	cout << "\\_| |_/\\___/  \\/  \\/    \\_/  \\___/  \\_|   \\_____/\\_| |_/\\_/    (_)  ";
 	
+	TextColor(9);
+	gotoxy(15, 8);
+	cout << "   _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._";
+	gotoxy(15, 9);
+	cout << ".-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.";
+	gotoxy(15, 10);
+	cout << " )                                                                           (";
+	gotoxy(15, 11);
+	cout << "(                                                                             )";
+	gotoxy(15, 12);
+	cout << " )                                                                           (";
+	gotoxy(15, 13);
+	cout << "(                                                                             )";
+	gotoxy(15, 14);
+	cout << " )                                                                           (";
+	gotoxy(15, 15);
+	cout << "(                                                                             )";
+	gotoxy(15, 16);
+	cout << " )                                                                           (";
+	gotoxy(15, 17);
+	cout << "(                                                                             )";
+	gotoxy(15, 18);
+	cout << " )                                                                           (";
+	gotoxy(15, 19);
+	cout << "(                                                                             )";
+	gotoxy(15, 20);
+	cout << " )                                                                           (";
+	gotoxy(15, 21);
+	cout << "(                                                                             )";
+	gotoxy(15, 22);
+	cout << " )                                                                           (";
+	gotoxy(15, 23);
+	cout << "(___       _       _       _       _       _       _       _       _       ___)";
+	gotoxy(15, 24);
+	cout << "    `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-'";
+	gotoxy(15, 25);
+	cout << "            `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-'";
+	gotoxy(15, 26);
+	cout << "                    `-._.-' (__  _) (__  _) (_ _ _) `-._.-'";
+	gotoxy(15, 27);
+	cout << "                            `-._.-' (_ ___) `-._.-'";
+	gotoxy(15, 28);
+	cout << "                                    `-._.-'";
+	
 	TextColor(6);
-	gotoxy(20, 9);
-	cout << "Press 'SPACE' to choose the FIRST Pokemon.";
 	gotoxy(20, 10);
-	cout << "Press 'ENTER' to choose the SECOND Pokemon.";
-	gotoxy(20, 11);
-	cout << "Press '!' TO USE 1 HINT. Press 'R' TO REFRESH THE BOARD.";
+	cout << "Press 'SPACE' to choose the FIRST Pokemon.";
 	gotoxy(20, 12);
-	cout << "If you don't have any valid moves left. The board will be swaped and you will be recomended for your next choice.";
-	gotoxy(20, 13);
-	cout << "If you clear the board and your time is greater than 0, you will WIN. Otherwise, you will LOSE !";
+	cout << "Press 'ENTER' to choose the SECOND Pokemon.";
+	TextColor(11);
 	gotoxy(20, 14);
+	cout << "Press '!' TO USE 1 HINT. Press 'R' TO REFRESH THE BOARD.";
+	TextColor(10);
+	gotoxy(20, 16);
+	cout << "If you don't have any remainning valid moves.";
+	gotoxy(25, 17);
+	cout << "The board will be swapped.";
+	gotoxy(25, 18);
+	cout << "And you will be recomended for your next choice.";
+	gotoxy(20, 20);
+	cout << "If you clear the board and your time is greater than 0,";
+	gotoxy(25, 21);
+	cout << " you will WIN. Otherwise, you will LOSE !";
+	TextColor(12);
+	gotoxy(70, 23);
 	cout << "Good Luck !";
 }
 
@@ -238,21 +293,23 @@ int MainMenu() {
     
     char key_choice = 0;
 	
-	switch(key_choice = getch()) {
-    	case PLAY:
-    		return choice[0];
-    	break;
-    	case CREDITS:
-    		return choice[1];
-    	break;
-		case LEADERBOARD:
-			return choice[2];
-		break;
-		case HOWTOPLAY:
-			return choice[3];
-		break;
-		case ESC:
-			return choice[4];
-		break;
+	while(true) {
+		switch(key_choice = getch()) {
+	    	case PLAY:
+	    		return choice[0];
+	    	break;
+	    	case CREDITS:
+	    		return choice[1];
+	    	break;
+			case LEADERBOARD:
+				return choice[2];
+			break;
+			case HOWTOPLAY:
+				return choice[3];
+			break;
+			case ESC:
+				return choice[4];
+			break;
+		}
 	}
 }

@@ -10,6 +10,7 @@
 
 void EventDispatches_EASY() {
 	ShowConsoleCursor(true);
+	SetConsoleOutputCP(65001);
 
 	int coordinatesX = 3, coordinatesY = 1;	// toa do trong console
 	int selectedX, selectedY;	// index trong mang cua pokemon thu nhat
@@ -36,7 +37,7 @@ void EventDispatches_EASY() {
 	system("cls");
 	
 	// ========== BACKGROUND ==========
-	int n = 12, m = 25;
+	int n = 13, m = 36;
 
 	char** bg = new char*[n];
 	for (int i = 0; i < n; i++) {
@@ -216,7 +217,10 @@ void EventDispatches_EASY() {
 		PlaySound(TEXT("songs\\goodjob.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		winerWinerChickenDinner(Player);
 		Player.scores;
-		getData(Player);
+		if (findPlayerName(Player))
+			updateFile(Player);
+		else
+			getData(Player);
 	}
 	else if (time_left <= 0) {
 		freedom2DArr(pokemons);
@@ -224,7 +228,10 @@ void EventDispatches_EASY() {
 		system("cls");
 		PlaySound(TEXT("songs\\defeat_coc.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		loserloserChicken(Player);
-		getData(Player);
+		if (findPlayerName(Player))
+			updateFile(Player);
+		else
+			getData(Player);
 	}
 }
 
@@ -434,7 +441,10 @@ void EventDispatches_NORMAL() {
 		PlaySound(TEXT("songs\\goodjob.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		winerWinerChickenDinner(Player);
 		Player.scores += 50;
-		getData(Player);
+		if (findPlayerName(Player))
+			updateFile(Player);
+		else
+			getData(Player);
 	
 	}
 	else if (time_left <= 0) {
@@ -443,7 +453,10 @@ void EventDispatches_NORMAL() {
 		system("cls");
 		PlaySound(TEXT("songs\\defeat_coc.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		loserloserChicken(Player);
-		getData(Player);
+		if (findPlayerName(Player))
+			updateFile(Player);
+		else
+			getData(Player);
 	}
 }
 
@@ -452,8 +465,8 @@ void EventDispatches_MEDIUM() {
 
 	int coordinatesX = 3, coordinatesY = 1;	// toa do trong console
 	int selectedX, selectedY;	// index trong mang cua pokemon thu nhat
-	int countHint = 7;	// đếm số lần sử dụng gợi ý
-	int countRefresh = 3;	// đếm số lần refresh bảng
+	int countHint = 7;	// d?m s? l?n s? d?ng g?i �
+	int countRefresh = 3;	// d?m s? l?n refresh b?ng
 	char key;
 	bool _CheckFirst = false;	// kiem tra xem co chon pokemon thu nhat hay chua
 	bool _checkEmptyBoard = false;	// kiem tra xem mang co bi an het hay chua
@@ -664,7 +677,10 @@ void EventDispatches_MEDIUM() {
 		PlaySound(TEXT("songs\\goobjob.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		winerWinerChickenDinner(Player);
 		Player.scores += (2 * countHint + 1) * (3 * countRefresh);
-		getData(Player);
+		if (findPlayerName(Player))
+			updateFile(Player);
+		else
+			getData(Player);
 	
 	}
 	else if (time_left <= 0) {
@@ -673,7 +689,10 @@ void EventDispatches_MEDIUM() {
 		system("cls");
 		PlaySound(TEXT("songs\\defeat_coc.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		loserloserChicken(Player);
-		getData(Player);
+		if (findPlayerName(Player))
+			updateFile(Player);
+		else
+			getData(Player);
 	}
 }
 
@@ -682,9 +701,9 @@ void EventDispatches_HARD() {
 
 	int coordinatesX = 3, coordinatesY = 1;	// toa do trong console
 	int selectedX, selectedY;	// index trong mang cua pokemon thu nhat
-	int countHint = 7;	// đếm số lần sử dụng gợi ý
-	int countRefresh = 2;	// đếm số lần refresh bảng
-	int checkScores = 0;	// KIỂM TRA ĐIỂM ĐỂ SWAP BẢNG TĂNG ĐỘ KHÓ
+	int countHint = 7;	// d?m s? l?n s? d?ng g?i �
+	int countRefresh = 2;	// d?m s? l?n refresh b?ng
+	int checkScores = 0;	// KI?M TRA �I?M �? SWAP B?NG TANG �? KH�
 	char key;
 	bool _CheckFirst = false;	// kiem tra xem co chon pokemon thu nhat hay chua
 	bool _checkEmptyBoard = false;	// kiem tra xem mang co bi an het hay chua
@@ -849,6 +868,7 @@ void EventDispatches_HARD() {
 					gotoxy(coordinatesX, coordinatesY);
 					
 					if (selectPokemon(selectedX, selectedY) && pokemons[selectedX][selectedY] != '0' && pokemons[_x][_y] != '0') {
+						time_left ++;
 						PlaySound(TEXT("songs\\correct.wav"), NULL, SND_FILENAME | SND_ASYNC);
 
 						Player.scores += 10;
@@ -888,8 +908,10 @@ void EventDispatches_HARD() {
 						// =================================
 						gotoxy(coordinatesX, coordinatesY);	// dieu chinh toa do chuot lai o moi vua xoa
 					}
-					else
+					else {
+						time_left -= 3;
 						PlaySound(TEXT("songs\\wrong.wav"), NULL, SND_FILENAME | SND_ASYNC);
+					}
 				}
 			}
 		}
@@ -902,7 +924,10 @@ void EventDispatches_HARD() {
 		PlaySound(TEXT("songs\\goodjob.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		winerWinerChickenDinner(Player);
 		Player.scores += (3 * countHint + 1) * (5 * countRefresh);
-		getData(Player);
+		if (findPlayerName(Player))
+			updateFile(Player);
+		else
+			getData(Player);
 	
 	}
 	else if (time_left <= 0) {
@@ -911,7 +936,10 @@ void EventDispatches_HARD() {
 		system("cls");
 		PlaySound(TEXT("songs\\defeat_coc.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		loserloserChicken(Player);
-		getData(Player);
+		if (findPlayerName(Player))
+			updateFile(Player);
+		else
+			getData(Player);
 	}
 }
 
@@ -921,9 +949,9 @@ void EventDispatches_ASIA() {
 
 	int coordinatesX = 3, coordinatesY = 1;	// toa do trong console
 	int selectedX, selectedY;	// index trong mang cua pokemon thu nhat
-	int countHint = 5;	// đếm số lần sử dụng gợi ý
-	int countRefresh = 1;	// đếm số lần refresh bảng
-	int checkScores = 0;	// KIỂM TRA ĐIỂM ĐỂ SWAP BẢNG TĂNG ĐỘ KHÓ
+	int countHint = 5;	// d?m s? l?n s? d?ng g?i �
+	int countRefresh = 1;	// d?m s? l?n refresh b?ng
+	int checkScores = 0;	// KI?M TRA �I?M �? SWAP B?NG TANG �? KH�
 	char key;
 	bool _CheckFirst = false;	// kiem tra xem co chon pokemon thu nhat hay chua
 	bool _checkEmptyBoard = false;	// kiem tra xem mang co bi an het hay chua
@@ -1149,7 +1177,10 @@ void EventDispatches_ASIA() {
 		PlaySound(TEXT("songs\\goodjob.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		winerWinerChickenDinner(Player);
 		Player.scores += (5 * countHint + 1) * (5 * countRefresh);
-		getData(Player);
+		if (findPlayerName(Player))
+			updateFile(Player);
+		else
+			getData(Player);
 	
 	}
 	else if (time_left <= 0) {
@@ -1158,6 +1189,10 @@ void EventDispatches_ASIA() {
 		system("cls");
 		PlaySound(TEXT("songs\\defeat_coc.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		loserloserChicken(Player);
-		getData(Player);
+		if (findPlayerName(Player))
+			updateFile(Player);
+		else
+			getData(Player);
 	}
 }
+

@@ -72,9 +72,12 @@ void getBackground_EASY(char** bg) {
 }
 
 void printBackGround(char** bg, int n_rows, int n_cols) {
+	static int colors[] = {1, 2, 3, 4, 5, 6, 9, 10, 11, 12};
+	int indexColor;
     for (int i = 0; i < n_rows * 2; i++) {
         for (int j = 0; j < n_cols * 4; j++) {
-            TextColor(7);
+        	indexColor = rand() % (sizeof colors / sizeof *colors);
+            TextColor(indexColor);
             cout << bg[i][j];
         }
         cout << endl;

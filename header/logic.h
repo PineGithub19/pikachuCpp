@@ -28,8 +28,8 @@ vector<pair<int, int>> findPath(int _x, int _y, int x, int y) {
 	while(!dq.empty()) {
 		auto u = dq.front();
 		dq.pop_front();
-		// if (u == s)
-		// 	break;
+		 if (u == s)
+		 	break;
 		for (int k = 0; k < 4; k++) {
 			int x1 = u.first + dx[k];
 			int y1 = u.second + dy[k];
