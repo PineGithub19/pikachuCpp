@@ -1,4 +1,5 @@
 #pragma once
+#pragma comment(lib, "winmm.lib")
 #include <bits/stdc++.h>
 #include <windows.h>
 #include <conio.h>
